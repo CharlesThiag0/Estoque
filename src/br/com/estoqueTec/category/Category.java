@@ -13,7 +13,8 @@ public class Category {
     public Category(List<Product> category) {
 
         if(category == null) {
-            throw  new IllegalArgumentException("Categoria não pode ser nula");
+            throw  new IllegalArgumentException
+                    ("A lista de produtos da categoria não pode ser nula");
         }
 
         this.category = category;
@@ -40,10 +41,16 @@ public class Category {
             }
         }
 
-        throw new IllegalArgumentException("Numero não existente");
+        throw new IllegalArgumentException("ID não encontrado para procurar a data");
     }
 
     public void displayDate(){
+        if(dateRegistry.isEmpty()){
+            System.out.println("Não há datas registradas no momento");
+
+            return;
+        }
+
         dateRegistry.forEach((id, localDateTime) -> {
             System.out.printf("ID: %d\nData: %s\n\n", id,
                     localDateTime.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));

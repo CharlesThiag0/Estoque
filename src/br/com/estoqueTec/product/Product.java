@@ -10,10 +10,12 @@ public class Product {
     public Product(String name, int amount, double price, int id) {
 
         if(name == null){
-            throw new IllegalArgumentException("Nenhum dos atributos pode ser nulo");
+            throw new IllegalArgumentException
+                    ("O nome do produto não pode ser nulo ou vazio");
         }
         if(amount < 0 || price <= 0 || id <= 0){
-            throw  new IllegalArgumentException("Nenhum dos atributos pode ser nulo");
+            throw  new IllegalArgumentException
+                    ("Quantidade, preço e ID do produto devem ser valores positivos");
         }
 
         this.name = name;

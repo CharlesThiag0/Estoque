@@ -10,6 +10,11 @@ public class Stock {
     private Set<Category> estoque = new LinkedHashSet<>();
 
     public void addStock(Category category) {
+
+        if(category == null){
+            throw new IllegalArgumentException
+                    ("A categoria a ser adicionada ao estoque não pode ser nula");
+        }
         estoque.add(category);
     }
 
