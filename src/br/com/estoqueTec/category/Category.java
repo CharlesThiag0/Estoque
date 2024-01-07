@@ -4,14 +4,11 @@ import br.com.estoqueTec.product.Product;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Category {
     private List<Product> category;
-    private HashMap<Integer, LocalDateTime> dateRegistry = new HashMap<>();
+    private LinkedHashMap<Integer, LocalDateTime> dateRegistry = new LinkedHashMap<>();
 
     public Category(List<Product> category) {
 
@@ -44,5 +41,12 @@ public class Category {
         }
 
         throw new IllegalArgumentException("Numero não existente");
+    }
+
+    public void displayDate(){
+        dateRegistry.forEach((id, localDateTime) -> {
+            System.out.printf("ID: %d\nData: %s\n\n", id,
+                    localDateTime.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));
+        });
     }
 }
