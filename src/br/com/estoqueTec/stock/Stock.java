@@ -21,4 +21,9 @@ public class Stock {
     public Set<Category> getEstoque() {
         return Collections.unmodifiableSet(estoque);
     }
+
+    //remoção
+
+    // metudo para buscar produtos ou categorias com base em critérios específicos, como nome, preço ou quanteda
+
 }
