@@ -5,13 +5,14 @@ public class Product {
     private int amount;
     private double price;
     private int id;
+    private int totalAmount;
 
     public Product(String name, int amount, double price, int id) {
 
         if(name == null){
             throw new IllegalArgumentException("Nenhum dos atributos pode ser nulo");
         }
-        if(amount < 0 || price <= 0 || id <= 0){
+        if(amount < 0 || price <= 0 || id < 0){
             throw  new IllegalArgumentException("Nenhum dos atributos pode ser nulo");
         }
 
@@ -19,6 +20,7 @@ public class Product {
         this.amount = amount;
         this.price = price;
         this.id = id;
+        this.totalAmount += amount;
     }
 
     public String getName() {
@@ -33,24 +35,22 @@ public class Product {
         return price;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void rename(String name) {
-        this.name = name;
-    }
-
-    public void changePrice(double price) {
-        this.price = price;
+    public int getTotalAmount() {
+        return totalAmount;
     }
 
     public void addAmount(int amount) {
         this.amount += amount;
+        this.totalAmount += amount;
     }
 
     public void removeAmount(int amount) {
         this.amount -= amount;
+        this.totalAmount += amount;
     }
 
     @Override
