@@ -35,4 +35,15 @@ public class Category {
        this.dateRegistry.put(product.getId(), DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")
                .format(LocalDateTime.now()));
    }
+
+    public String dateSearch(int id) {
+        for(Map.Entry<Integer, String> entry: dateRegistry.entrySet()){
+
+            if(entry.getKey() == id){
+                return entry.getValue();
+            }
+        }
+
+        throw new IllegalArgumentException("Numero não existente");
+    }
 }
