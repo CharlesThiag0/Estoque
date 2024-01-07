@@ -12,7 +12,7 @@ public class Product {
         if(name == null){
             throw new IllegalArgumentException("Nenhum dos atributos pode ser nulo");
         }
-        if(amount < 0 || price <= 0 || id < 0){
+        if(amount < 0 || price <= 0 || id <= 0){
             throw  new IllegalArgumentException("Nenhum dos atributos pode ser nulo");
         }
 

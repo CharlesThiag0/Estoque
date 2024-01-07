@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class Category {
     private List<Product> category;
-    private HashMap<Integer, String> dateRegistry = new HashMap<>();
+    private HashMap<Integer, LocalDateTime> dateRegistry = new HashMap<>();
 
     public Category(List<Product> category) {
 
@@ -26,20 +26,19 @@ public class Category {
         return Collections.unmodifiableList(category);
     }
 
-    public Map<Integer, String> getDateRegistry() {
+    public Map<Integer, LocalDateTime> getDateRegistry() {
         return Collections.unmodifiableMap(dateRegistry);
     }
 
     public void addProduct(Product product) {
         this.category.add(product);
-       this.dateRegistry.put(product.getId(), DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")
-               .format(LocalDateTime.now()));
+       this.dateRegistry.put(product.getId(), LocalDateTime.now());
    }
 
-    public String dateSearch(int id) {
-        for(Map.Entry<Integer, String> entry: dateRegistry.entrySet()){
+    public LocalDateTime dateSearch(int id) {
+        for(Map.Entry<Integer, LocalDateTime> entry: dateRegistry.entrySet()){
 
-            if(entry.getKey() == id){
+            if(entry.getKey().equals(id)){
                 return entry.getValue();
             }
         }
