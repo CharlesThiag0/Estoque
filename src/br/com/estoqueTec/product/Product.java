@@ -5,7 +5,7 @@ public class Product {
     private int amount;
     private double price;
     private int id;
-    private int totalAmount;
+    private static int totalAmount;
 
     public Product(String name, int amount, double price, int id) {
 
