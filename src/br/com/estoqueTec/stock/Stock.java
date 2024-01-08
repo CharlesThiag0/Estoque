@@ -19,7 +19,7 @@ public class Stock {
     }
 
     public Set<Category> getStock() {
-        return Collections.unmodifiableSet(estoque);
+        return Collections.unmodifiableSet(stock);
     }
 
     //remoção
