@@ -7,7 +7,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Stock {
-    private Set<Category> estoque = new LinkedHashSet<>();
+    private Set<Category> stock = new LinkedHashSet<>();
 
     public void addStock(Category category) {
 
@@ -15,10 +15,10 @@ public class Stock {
             throw new IllegalArgumentException
                     ("A categoria a ser adicionada ao estoque não pode ser nula");
         }
-        estoque.add(category);
+        stock.add(category);
     }
 
-    public Set<Category> getEstoque() {
+    public Set<Category> getStock() {
         return Collections.unmodifiableSet(estoque);
     }
 
